@@ -46,10 +46,21 @@ exports.getUser = async (name) => {
   return result;
 };
 
-exports.getCanvas = async (id) => {
-  const result = await Canvas.find({ discord_id: id });
+exports.getCanvas = async (server_name) => {
+  const result = await Canvas.find({server_name});
   if (result.length === 0) return;
   return result[0];
+};
+
+exports.setDelay = async (server_name, newDelay) => {
+  const canvas = await Canvas.find({ server_name });
+  if (canvas.length === 0){
+    await this.createSchema(Canvas, {'server_name': server_name, 'delay': newDelay})
+  }else{
+    canvas[0].delay = newDelay;
+    const resultUpdate = await this.updateSchema(Canvas, canvas[0]._id, canvas[0]);
+  }
+  
 };
 
 exports.doUse = async (name, time) => {

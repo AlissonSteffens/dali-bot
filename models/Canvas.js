@@ -3,9 +3,8 @@ const mongoose = require('../config/mongoConnection');
 const Schema = mongoose.Schema;
 
 const CanvasSchema = new Schema({
-  name: String,
-  image: String,
-  
+  server_name: String,
+  delay: Number  
 });
 
 

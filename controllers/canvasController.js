@@ -14,6 +14,8 @@ const nearest = NearestColors.from(allColors);
 
 let bot;
 
+let drawDelay = 60;
+
 exports.setBot = async (b) => {
   bot = b;
 };
@@ -46,6 +48,22 @@ exports.setColor = async (msg) => {
   bot.createMessage(msg.channel.id,'New color is '+colorName);
 };
 
+exports.setDelay = async (msg) => {
+
+  let newDelay =  parseInt(msg.content.split(' ')[1], 10);
+
+  let userAdmin = msg.member.permission.json.administrator;
+  if(userAdmin){
+    drawDelay = newDelay;
+    await mongoController.setDelay(msg.channel.id, newDelay)
+    bot.createMessage(msg.channel.id,'New draw delay is '+newDelay);
+  }else{
+    bot.createMessage(msg.channel.id,'Ohh, what are You doing here? You are not an Admin :unamused: go home');
+  }
+  
+  
+};
+
 exports.draw = async (msg) => {
   let userId = msg.author.id;
   let now = Math.floor(Date.now() / 1000);
@@ -58,7 +76,15 @@ exports.draw = async (msg) => {
   }else{
     let antes = db[0].last;
     user = db[0];
-    let falta = 10 - (parseInt(now) - parseInt(antes));
+    let canvas = await mongoController.getCanvas(msg.channel.id)
+    
+    if(canvas == undefined){
+      await mongoController.setDelay(msg.channel.id, 60)
+      drawDelay = 60;
+    }else{
+      drawDelay = canvas.delay;
+    }
+    let falta = drawDelay - (parseInt(now) - parseInt(antes));
     if(falta > 0){
       bot.createMessage(msg.channel.id,'<@'+msg.author.id+'> você deve esperar mais '+falta+' segundos.');
       return;

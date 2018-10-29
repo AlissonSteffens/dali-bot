@@ -10,7 +10,7 @@ if (!process.env['bot_token']) {
 const botToken = process.env['bot_token'] || keys.bot_token;
 const bot = new Eris(botToken);
 const commands = [];
-let commandSymbol = '!';
+let commandSymbol = '+';
 
 exports.connectBot = () => {
   bot.connect();
@@ -46,6 +46,11 @@ const createCommands = () => {
     action: (msg) => { canvasController.setColor(msg, bot); }
   });
   commands.push({
+    name: 'Set Delay',
+    condition: (msg) => { return msg.content.startsWith(commandSymbol + 'setDelay'); },
+    action: (msg) => { canvasController.setDelay(msg, bot); }
+  });
+  commands.push({
     name: 'Colors',
     condition: (msg) => { return msg.content.startsWith(commandSymbol + 'colors'); },
     action: (msg) => { canvasController.showColors(msg, bot); }
@@ -64,6 +69,9 @@ const showHelp = async (msg) => {
   message += commandSymbol + 'draw x y: Draw on pixel X Y\n';
   message += commandSymbol + 'setColor newColor: Set your new actual color\n';
   message += commandSymbol + 'colors: Show all possible colors as image\n';
+
+  message += '\n--------------Admin Only---------------\n';
+  message += commandSymbol + 'setDelay time: set the draw on canvas delay\n';
   message += '```'
   bot.createMessage(msg.channel.id, message);
 };
