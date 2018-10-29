@@ -23,7 +23,7 @@ exports.draw = async (msg) => {
     let antes = db[0].last
     let falta = 10 - (parseInt(now) - parseInt(antes));
     if(falta > 0){
-      bot.createMessage(msg.channel.id,'Você deve esperar mais '+falta+' segundos.');
+      bot.createMessage(msg.channel.id,'<@'+msg.author.id+'> você deve esperar mais '+falta+' segundos.');
       return;
     }
     await mongoController.doUse(db[0].name, now);

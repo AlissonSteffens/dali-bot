@@ -32,8 +32,8 @@ bot.on('messageCreate', (msg) => {
 const createCommands = () => {
   commands.push({
     name: 'Ping',
-    condition: (msg) => { return msg.content.startsWith(commandSymbol + 'ping'); },
-    action: (msg) => { bot.createMessage(msg.channel.id, 'Pong!'); }
+    condition: (msg) => { return msg.content.startsWith(commandSymbol + 'pong'); },
+    action: (msg) => { bot.createMessage(msg.channel.id, 'Ping!'); }
   });
   commands.push({
     name: 'Draw',
