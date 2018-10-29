@@ -1,4 +1,5 @@
 const Canvas = require('../models/Canvas');
+const User = require('../models/User');
 
 exports.getSchema = async (Schema) => {
   const result = await Schema.find();
@@ -39,9 +40,21 @@ exports.deleteSchema = async (Schema, id) => {
   await Schema.findByIdAndRemove(id);
 };
 
+exports.getUser = async (name) => {
+  const result = await User.find({ name });
+  if (result.length === 0) return;
+  return result;
+};
 
 exports.getCanvas = async (id) => {
   const result = await Canvas.find({ discord_id: id });
   if (result.length === 0) return;
   return result[0];
+};
+
+exports.doUse = async (name, time) => {
+  const user = await User.find({ name });
+  if (user.length === 0) return;
+  user[0].last = time;
+  const resultUpdate = await this.updateSchema(User, user[0]._id, user[0]);
 };
