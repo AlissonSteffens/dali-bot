@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema({
   name: String,
   last: String,
-  
+  color: Number  
 });
 
 

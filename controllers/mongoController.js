@@ -58,3 +58,10 @@ exports.doUse = async (name, time) => {
   user[0].last = time;
   const resultUpdate = await this.updateSchema(User, user[0]._id, user[0]);
 };
+
+exports.setColor = async (name, color) => {
+  const user = await User.find({ name });
+  if (user.length === 0) return;
+  user[0].color = color;
+  const resultUpdate = await this.updateSchema(User, user[0]._id, user[0]);
+};
