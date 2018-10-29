@@ -1,0 +1,43 @@
+{
+  "name": "dali-bot",
+  "version": "1.0.0",
+  "description": "Discord bot for paint it black",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "lint": "./node_modules/.bin/eslint controllers ./node_modules/.bin/eslint routes",
+    "lint-fix": "./node_modules/.bin/eslint controllers ./node_modules/.bin/eslint routes --fix",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AlissonSteffens/dali-bot"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AlissonSteffens/dali-bot/issues"
+  },
+  "homepage": "https://github.com/AlissonSteffens/dali-bot#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cookie-parser": "~1.4.3",
+    "eris": "^0.7.2",
+    "express": "^4.16.3",
+    "jimp": "^0.5.6",
+    "moment": "2.18.1",
+    "moment-timezone": "^0.5.13",
+    "mongodb": "^2.2.33",
+    "mongoose": "^5.0.6",
+    "mongoose-autopopulate": "^0.8.1",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2"
+  },
+  "devDependencies": {
+    "eslint": "^4.17.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "nodemon": "^1.18.4"
+  }
+}
