@@ -8,7 +8,9 @@
     "dev": "nodemon app.js",
     "lint": "./node_modules/.bin/eslint controllers ./node_modules/.bin/eslint routes",
     "lint-fix": "./node_modules/.bin/eslint controllers ./node_modules/.bin/eslint routes --fix",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -28,14 +30,16 @@
     "eris": "^0.7.2",
     "express": "^4.16.3",
     "jimp": "^0.5.6",
-    "mongodb": "^2.2.33",
-    "mongoose": "^5.0.6",
-    "nearest-color": "^0.4.2"
+    "mongodb": "^3.1.13",
+    "mongoose": "^5.7.5",
+    "nearest-color": "^0.4.2",
+    "snyk": "^1.236.0"
   },
   "devDependencies": {
     "eslint": "^4.17.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
     "nodemon": "^1.18.4"
-  }
+  },
+  "snyk": true
 }
