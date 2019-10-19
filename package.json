@@ -30,8 +30,8 @@
     "eris": "^0.7.2",
     "express": "^4.16.3",
     "jimp": "^0.5.6",
-    "mongodb": "^3.1.13",
-    "mongoose": "^5.7.5",
+    "mongodb": "^2.2.33",
+    "mongoose": "^5.0.6",
     "nearest-color": "^0.4.2",
     "snyk": "^1.236.0"
   },
