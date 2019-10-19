@@ -6,3 +6,21 @@ patch:
   SNYK-JS-LODASH-450202:
     - mongoose > async > lodash:
         patched: '2019-10-19T01:32:17.444Z'
+    - snyk > @snyk/dep-graph > lodash:
+        patched: '2019-10-19T01:32:51.587Z'
+    - snyk > @snyk/dep-graph > graphlib > lodash:
+        patched: '2019-10-19T01:32:51.587Z'
+    - snyk > snyk-go-plugin > graphlib > lodash:
+        patched: '2019-10-19T01:32:51.587Z'
+    - snyk > snyk-nodejs-lockfile-parser > graphlib > lodash:
+        patched: '2019-10-19T01:32:51.587Z'
+    - snyk > @snyk/snyk-cocoapods-plugin > @snyk/dep-graph > lodash:
+        patched: '2019-10-19T01:32:51.587Z'
+    - snyk > snyk-nuget-plugin > dotnet-deps-parser > lodash:
+        patched: '2019-10-19T01:32:51.587Z'
+    - snyk > @snyk/snyk-cocoapods-plugin > @snyk/dep-graph > graphlib > lodash:
+        patched: '2019-10-19T01:32:51.587Z'
+    - snyk > @snyk/snyk-cocoapods-plugin > @snyk/cocoapods-lockfile-parser > @snyk/dep-graph > lodash:
+        patched: '2019-10-19T01:32:51.587Z'
+    - snyk > @snyk/snyk-cocoapods-plugin > @snyk/cocoapods-lockfile-parser > @snyk/dep-graph > graphlib > lodash:
+        patched: '2019-10-19T01:32:51.587Z'
